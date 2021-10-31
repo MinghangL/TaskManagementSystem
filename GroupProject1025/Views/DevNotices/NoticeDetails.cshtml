@@ -1,0 +1,96 @@
+﻿@model GroupProject1025.Models.DevNotice
+
+@{
+    ViewBag.Title = "NoticeDetails";
+}
+
+<h2>NoticeDetails</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationUser.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MessageType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MessageType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SenderId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SenderId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Message)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Message)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DevProjectId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DevProjectId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DevTaskId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DevTaskId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsRead)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsRead)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoticeDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoticeDate)
+        </dd>
+
+    </dl>
+</div>
+
+@*@{
+    ViewBag.PathName = "Dashboard";
+    ViewBag.ControllerName = "DevProjects";
+}*@
+
+<p>
+    @*@Html.ActionLink("Back to Dashboard", "Dashboard", "DevProjects")<br />
+    @Html.ActionLink("Back to Desktop", "Desktop", "DevTasks")<br />*@
+    @Html.ActionLink("Back", "ShowNoticeList", "DevNotices", new { userId = ViewBag.UserId , actionName = ViewBag.ActionName, controllerName = ViewBag.ControllerName}, null) 
+</p>

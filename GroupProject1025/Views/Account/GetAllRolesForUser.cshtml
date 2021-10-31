@@ -1,0 +1,33 @@
+﻿@model List<string>
+@{
+    ViewBag.Title = "GetAllRolesForUser";
+}
+
+<h2>Get All Roles For User</h2>
+<table class="table">
+    <tr>
+        <th>
+            Role Name
+        </th>
+    </tr>
+
+@if(Model != null)
+            {
+
+                    foreach (var item in Model)
+                    {
+                         <tr>
+                             <td>
+                                @item
+
+                             </td>
+                         </tr>
+                    }
+
+            }
+</table>
+
+
+<div>
+    @Html.ActionLink("Back to List", "ShowAllUsers")
+</div>

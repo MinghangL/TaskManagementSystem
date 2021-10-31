@@ -1,0 +1,54 @@
+﻿@model IEnumerable<GroupProject1025.Models.ProjectCoastViewModel>
+
+@{
+    ViewBag.Title = "ShowProjectFinalCost";
+}
+
+<h2>Show Project Final Cost</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Project Id
+        </th>
+        <th>
+            Project Name
+        </th>
+        <th>
+             Budget
+        </th>
+        <th>
+            Deadline
+        </th>
+        <th>
+            Final Cost
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DevProjectId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Budget)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deadline)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FinalCoat)
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Back to Dashboard", "Dashboard")
+</p>

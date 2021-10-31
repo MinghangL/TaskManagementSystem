@@ -1,0 +1,78 @@
+﻿@model GroupProject1025.Models.DashboardViewModel
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<h2>Dashboard</h2>
+<div>
+    <p>
+        @Html.ActionLink("Go to the Notification", "ShowNoticeList", "DevNotices", new { userId = ViewBag.UserId, actionName = "Dashboard", controllerName = "DevProjects" }, null) &#128204; [ @Model.UnreadNumber ]
+    </p>
+</div>
+
+<p>
+    @Html.ActionLink("Create New Project", "CreateProject")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            ProjectName
+        </th>
+        <th>
+            PlanStartDate
+        </th>
+        <th>
+            PlanEndDate
+        </th>
+        <th>
+            Deadline
+        </th>
+        <th>
+            Percentage
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.DevProjects)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.PlanStartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlanEndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deadline)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Percentage)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "ProjectDetails", new { id = item.Id }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                @*@Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.ActionLink("Show Tasks Passed Deadline", "ShowTasksPassedDeadline", "DevTasks" ) |
+@Html.ActionLink("Show Project Exceed Budget", "ShowProjectExceedBudget") |
+@Html.ActionLink("Show Project Final Cost", "ShowProjectFinalCost")
+
+<br />
+<br />
+<br />
+<br />
+<div>
+    @Html.ActionLink("Back to Home", "Index", "Home")
+</div>

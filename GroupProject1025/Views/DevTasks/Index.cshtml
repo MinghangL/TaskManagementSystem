@@ -1,0 +1,123 @@
+﻿@model IEnumerable<GroupProject1025.Models.DevTask>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplicationUser.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaskTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DevProjectId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlanStartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlanEndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActualStartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActualEndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Deadline)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Percentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsCompleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Priority)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsNoticed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoticeDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoticeTimes)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaskTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Content)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DevProjectId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlanStartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlanEndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActualStartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActualEndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Deadline)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Percentage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsCompleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Priority)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsNoticed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoticeDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoticeTimes)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

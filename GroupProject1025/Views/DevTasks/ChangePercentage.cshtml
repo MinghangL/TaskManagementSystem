@@ -1,0 +1,51 @@
+﻿@model GroupProject1025.Models.DevTask
+
+@{
+    ViewBag.Title = "ChangePercentage";
+}
+
+<h2>Change Percentage</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.TaskTitle)
+            @Html.HiddenFor(model => model.Content)
+            @Html.HiddenFor(model => model.DevProjectId)
+            @Html.HiddenFor(model => model.ApplicationUserID)
+            @Html.HiddenFor(model => model.PlanStartDate)
+            @Html.HiddenFor(model => model.PlanEndDate)
+            @Html.HiddenFor(model => model.ActualStartDate)
+            @Html.HiddenFor(model => model.ActualEndDate)
+            @Html.HiddenFor(model => model.Deadline)
+            @Html.HiddenFor(model => model.Comment)
+            @Html.EditorFor(model => model.IsCompleted)
+            @Html.HiddenFor(model => model.Priority)
+            @Html.HiddenFor(model => model.IsNoticed)
+            @Html.HiddenFor(model => model.NoticeDate)
+            @Html.HiddenFor(model => model.NoticeTimes)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Percentage, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Percentage, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Percentage, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to Desktop", "Desktop")
+</div>

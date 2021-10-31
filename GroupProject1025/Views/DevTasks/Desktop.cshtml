@@ -1,0 +1,79 @@
+﻿@model GroupProject1025.Models.DesktopViewModel
+
+@{
+    ViewBag.Title = "Desktop";
+}
+
+<h2>Developer's Desktop</h2>
+
+<div>
+    <p>
+        @Html.ActionLink("Go to the Notification", "ShowNoticeList", "DevNotices", new { userId = ViewBag.UserId, actionName = "Desktop", controllerName = "DevTasks" }, null) &#128204; [ @Model.UnreadNumber ]
+    </p>
+</div>
+
+<table class="table">
+    <tr>
+
+        <th>
+            TaskTitle
+        </th>
+        <th>
+            DevProjectId
+        </th>
+        <th>
+            PlanStartDate
+        </th>
+        <th>
+            Deadline
+        </th>
+        <th>
+            Percentage
+        </th>
+        <th>
+            Priority
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.DevTasks)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DevProjectId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlanStartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deadline)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Percentage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Priority)
+            </td>
+
+            <td>
+                &#128073;@Html.ActionLink("Details", "Details", new { id = item.Id }) <br />
+                &#128073;@Html.ActionLink("Change Percentage", "ChangePercentage", new { id = item.Id }) <br />
+                &#128073;@Html.ActionLink("Complete Task", "CompleteTask", new { id = item.Id }) <br />
+                &#128073;@Html.ActionLink("Comment Task", "CommentTask", new { id = item.Id }) <br />
+                &#128073;@Html.ActionLink("Send Urgent Message", "SendUrgentMessage", "DevNotices", new { id = item.Id }, null)
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |*@
+                @*@Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to Home", "Index", "Home")
+</div>
