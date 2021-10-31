@@ -1,0 +1,57 @@
+﻿@model IEnumerable<GroupProject1025.Models.DevTask>
+
+@{
+    ViewBag.Title = "ShowTasksPassedDeadline";
+}
+
+<h2>Show Tasks Passed Deadline</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplicationUser.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaskTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlanStartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Deadline)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Percentage)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlanStartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deadline)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Percentage)
+            </td>
+
+            @*<td>
+                @Html.ActionLink("Details", "TaskDetails", "DevTasks", new { id = item.Id },null) 
+            </td>*@
+        </tr>
+    }
+
+</table>
+<td>
+    @Html.ActionLink("Back to Dashboard", "Dashboard", "DevProjects") 
+</td>

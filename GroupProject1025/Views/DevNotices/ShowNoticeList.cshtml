@@ -1,0 +1,68 @@
+﻿@model IEnumerable<GroupProject1025.Models.DevNotice>
+
+@{
+    ViewBag.Title = "ShowNoticeList";
+}
+
+<h2>Show Notice List</h2>
+
+<p>
+    @Html.ActionLink("Back", (string)ViewBag.ActionName, (string)ViewBag.ControllerName)
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MessageType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SenderId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoticeDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsRead)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MessageType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SenderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoticeDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsRead)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "NoticeDetails", "DevNotices", new { id = item.Id, userId = item.ApplicationUserID, actionName = ViewBag.ActionName, controllerName = ViewBag.ControllerName }, null) 
+            </td>
+        </tr>
+    }
+
+</table>
+
+@*@{
+    ViewBag.PathName = "Dashboard";
+    ViewBag.ControllerName = "DevProjects";
+}*@
+
+<p>
+    @*@Html.ActionLink("Back to Dashboard", "Dashboard", "DevProjects")<br />
+    @Html.ActionLink("Back to Desktop", "Desktop", "DevTasks")<br />*@
+    @Html.ActionLink("Back", (string)ViewBag.ActionName, (string)ViewBag.ControllerName)
+</p>

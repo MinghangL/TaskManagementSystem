@@ -1,0 +1,146 @@
+﻿@model GroupProject1025.Models.DevTask
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DevTask</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationUser.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaskTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaskTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DevProjectId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DevProjectId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlanStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlanStartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlanEndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlanEndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActualStartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualEndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActualEndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deadline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deadline)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Percentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Percentage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsCompleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsCompleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Priority)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Priority)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsNoticed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsNoticed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoticeDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoticeDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoticeTimes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoticeTimes)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+    @Html.ActionLink("Back to Desktop", "Desktop")
+</p>

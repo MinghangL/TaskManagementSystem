@@ -1,0 +1,186 @@
+﻿@model GroupProject1025.Models.ProjectDetailsViewModel
+
+@{
+    ViewBag.Title = "ProjectDetails";
+}
+
+<h2>Project Details</h2>
+<p>
+
+    @Html.ActionLink("Edit This Project", "Edit", new { id = Model.DevProject.Id })
+</p>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DevProject.ApplicationUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DevProject.ApplicationUser.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DevProject.ProjectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DevProject.ProjectName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DevProject.ProjectDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DevProject.ProjectDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DevProject.Budget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DevProject.Budget)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DevProject.FinalCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DevProject.FinalCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DevProject.PlanStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DevProject.PlanStartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DevProject.PlanEndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DevProject.PlanEndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DevProject.ActualStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DevProject.ActualStartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DevProject.ActualEndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DevProject.ActualEndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DevProject.Deadline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DevProject.Deadline)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DevProject.Priority)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DevProject.Priority)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DevProject.IsNoticed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DevProject.IsNoticed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DevProject.NoticeDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DevProject.NoticeDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DevProject.NoticeTimes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DevProject.NoticeTimes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DevProject.IsCompleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DevProject.IsCompleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DevProject.Percentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DevProject.Percentage)
+        </dd>
+
+    </dl>
+
+</div>
+<br />
+<br />
+<p>
+    @Html.ActionLink("Add a Task", "CreateTask", "DevTasks", new { id = Model.DevProject.Id }, null)
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Developer
+        </th>
+        <th>
+            Deadline
+        </th>
+        <th>
+            Percentage
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.DevTasks)
+    {
+        <tr>
+            <td>
+                @item.ApplicationUser.Email
+            </td>
+            <td>
+                @item.Deadline
+            </td>
+            <td>
+                @item.Percentage
+            </td>
+            <td>
+                @Html.ActionLink("Details", "TaskDetails", "DevTasks", new { id = @item.Id, projectId = Model.DevProject.Id }, null) | 
+                @Html.ActionLink("Delete", "DeleteTask", "DevTasks", new { id = @item.Id, projectId = Model.DevProject.Id }, null)
+            </td>
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Back to Dashboard", "Dashboard")
+</p>
