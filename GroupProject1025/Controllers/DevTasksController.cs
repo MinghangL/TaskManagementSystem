@@ -237,7 +237,7 @@ namespace GroupProject1025.Controllers
             {
                 return HttpNotFound();
             }
-            if(devTask.IsCompleted == true)
+            if (devTask.IsCompleted == true)
             {
                 // show an error page
                 return View(devTask);
@@ -280,10 +280,10 @@ namespace GroupProject1025.Controllers
             {
                 return HttpNotFound();
             }
-            if (devTask.IsCompleted==true)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            //if (devTask.IsCompleted == true)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
 
             devTask.Percentage = 100;
             devTask.ActualEndDate = DateTime.Now;
@@ -291,7 +291,7 @@ namespace GroupProject1025.Controllers
 
             // Send message to Manager?=>no, we did it when manager login in
 
-            if (ModelState.IsValid && devTask.IsCompleted != true)
+            if (ModelState.IsValid)
             {
                 db.Entry(devTask).State = EntityState.Modified;
                 db.SaveChanges();
@@ -360,6 +360,17 @@ namespace GroupProject1025.Controllers
             ViewBag.ProjectId = projectId;
             return View(devTask);
         }
+        // POST: DevTasks/Delete/5
+        [HttpPost, ActionName("DeleteTask")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteTaskConfirmed(int id, int projectId)
+        {
+            DevTask devTask = db.DevTasks.Find(id);
+            db.DevTasks.Remove(devTask);
+            db.SaveChanges();
+            return RedirectToAction("ProjectDetails", "DevProjects", new { id = projectId });
+        }
+
         // Notice the SD
         public void SystemNoticeToSD(string userId)
         {
@@ -377,7 +388,7 @@ namespace GroupProject1025.Controllers
                 devNotice.MessageType = noticeType;
                 devNotice.Title = "Task is delay";
                 devNotice.Message = "Task passed the deadline!";
-                
+
                 // Task add a notice pass deadline
                 if (devTask.Deadline <= today.AddDays(1) && DateTime.Now.Date != devTask.NoticeDate.Date)
                 {

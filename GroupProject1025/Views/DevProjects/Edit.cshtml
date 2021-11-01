@@ -9,7 +9,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>DevProject</h4>
         <hr />
@@ -159,3 +159,53 @@
 <div>
     @Html.ActionLink("Back to Dashboard", "Dashboard")
 </div>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script type="text/javascript">
+    $(function () {
+        $("#PlanStartDate").datetimepicker({
+            format: "DD/MM/YYYY"
+        }).on('dp.change', function (e) {
+            $(this).data("DateTimePicker").hide();
+        });
+    });
+</script> @*// "#PlanStartDate" the name of the date field*@
+<script type="text/javascript">
+    $(function () {
+        $("#PlanEndDate").datetimepicker({
+            format: "DD/MM/YYYY"
+        }).on('dp.change', function (e) {
+            $(this).data("DateTimePicker").hide();
+        });
+    });
+</script> @*// "# " the name of the date field*@
+<script type="text/javascript">
+    $(function () {
+        $("#Deadline").datetimepicker({
+            format: "DD/MM/YYYY"
+        }).on('dp.change', function (e) {
+            $(this).data("DateTimePicker").hide();
+        });
+    });
+</script> @*// "# " the name of the date field*@
+<script type="text/javascript">
+    $(function () {
+        $("#ActualStartDate").datetimepicker({
+            format: "DD/MM/YYYY"
+        }).on('dp.change', function (e) {
+            $(this).data("DateTimePicker").hide();
+        });
+    });
+</script> @*// "# " the name of the date field*@
+<script type="text/javascript">
+    $(function () {
+        $("#ActualEndDate").datetimepicker({
+            format: "DD/MM/YYYY"
+        }).on('dp.change', function (e) {
+            $(this).data("DateTimePicker").hide();
+        });
+    });
+</script> @*// "# " the name of the date field*@

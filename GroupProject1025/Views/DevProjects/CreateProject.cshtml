@@ -42,7 +42,7 @@
             @Html.LabelFor(model => model.PlanStartDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.PlanStartDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PlanStartDate, "", new { @class = "text-danger" })
+                @*@Html.ValidationMessageFor(model => model.PlanStartDate, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
@@ -50,7 +50,7 @@
             @Html.LabelFor(model => model.PlanEndDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.PlanEndDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PlanEndDate, "", new { @class = "text-danger" })
+                @*@Html.ValidationMessageFor(model => model.PlanEndDate, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
@@ -58,7 +58,7 @@
             @Html.LabelFor(model => model.Deadline, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Deadline, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Deadline, "", new { @class = "text-danger" })
+                @*@Html.ValidationMessageFor(model => model.Deadline, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
@@ -82,3 +82,36 @@
     @*@Html.ActionLink("Back to List", "Index")*@
     @Html.ActionLink("Back to Dashboard", "Dashboard")
 </div>
+
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script type="text/javascript">
+    $(function () {
+        $("#PlanStartDate").datetimepicker({
+            format: "DD/MM/YYYY"
+        }).on('dp.change', function (e) {
+            $(this).data("DateTimePicker").hide();
+        });
+    });
+</script> @*// "#PlanStartDate" the name of the date field*@
+<script type="text/javascript">
+    $(function () {
+        $("#PlanEndDate").datetimepicker({
+            format: "DD/MM/YYYY"
+        }).on('dp.change', function (e) {
+            $(this).data("DateTimePicker").hide();
+        });
+    });
+</script> @*// "# " the name of the date field*@
+<script type="text/javascript">
+    $(function () {
+        $("#Deadline").datetimepicker({
+            format: "DD/MM/YYYY"
+        }).on('dp.change', function (e) {
+            $(this).data("DateTimePicker").hide();
+        });
+    });
+</script> @*// "# " the name of the date field*@
